@@ -3,7 +3,12 @@
 
 private double fractionLength = .8; 
 private int smallestBranch = 10; 
-private double branchAngle = .2;  
+private double branchAngle = .2;
+private boolean on;  
+private float red = 0;
+private float green = 255;
+private float blue = 0;
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,7 +24,7 @@ public void setup()
 public void draw() 
 {   
 	background(0);   
-	stroke(0,255,0);   
+	stroke(red, green, blue);   
 	line(320,490,320,380);   
 	drawBranches(320,380,100,3*Math.PI/2); 
 } 
@@ -31,7 +36,28 @@ public void draw()
 
 public void keyPressed()
 {
-	//if (keyPressed == true)
+	if (keyPressed == true)
+	{
+		if (key == 'd')
+		{
+			branchAngle = branchAngle + .05;
+			if (red <= 250)
+			{
+				red = red + 5;
+			}
+			redraw();
+		}
+
+		if (key == 'a')
+		{
+			branchAngle = branchAngle - .05;
+			if (blue <= 250)
+			{
+				blue = blue + 5;
+			}
+			redraw();
+		}
+	}
 }
 
 
